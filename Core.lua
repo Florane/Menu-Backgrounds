@@ -32,6 +32,7 @@ MenuBackgrounds.Menus = {
 	"briefing",
 	"blackscreen",
 	"endscreen",
+	"failscreen",
 	"loot",
 	"loading"
 }
@@ -158,6 +159,9 @@ function MenuBackgrounds:GetBackgroundFile(bg)
 	bg = self.Options:GetValue("UseStandard") and "standard" or bg
 	if bg:begins("blackmarket") and not self._files[bg] then
 		bg = "blackmarket_all"
+	end
+	if bg == "failscreen" and not self._files[bg] then
+		bg = "endscreen"
 	end
 
 	local file_tbl = self._files[bg]
