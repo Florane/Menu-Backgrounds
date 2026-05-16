@@ -206,7 +206,7 @@ function MenuBackgrounds:AddBackground(bg, pnl, layer)
 	end
 
 	local is_movie = in_ext == "movie"
-	local volume = not self._hidden and self.Options:GetValue("Volume") or 0
+	local volume = self.Options:GetValue("Volume")
 	if not self._reload and (self._last and self._last.is_movie and alive(self._last.bg_mod) and self._last.file == file) then
 		self._last.bg_mod:set_volume_gain(volume)
 		return true
